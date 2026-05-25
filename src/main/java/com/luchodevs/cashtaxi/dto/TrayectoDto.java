@@ -2,24 +2,25 @@ package com.luchodevs.cashtaxi.dto;
 
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class TrayectoDto{
 
-    public int id;
+    public Long id;
     public LocalDate fechaDia;
     public LocalDate fechaTrayecto;
-    public LocalDate horaTrayecto;
+    public LocalTime horaTrayecto;
     public Double valorTrayecto;
     public Double valorCobrado;
     public Double valorNeto;
     public String plataforma;
     public String metodoPago;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -39,11 +40,11 @@ public class TrayectoDto{
         this.fechaTrayecto = fechaTrayecto;
     }
 
-    public LocalDate getHoraTrayecto() {
+    public LocalTime getHoraTrayecto() {
         return horaTrayecto;
     }
 
-    public void setHoraTrayecto(LocalDate horaTrayecto) {
+    public void setHoraTrayecto(LocalTime horaTrayecto) {
         this.horaTrayecto = horaTrayecto;
     }
 

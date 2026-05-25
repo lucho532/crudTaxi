@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 // Entidad Player
 @Entity
@@ -23,7 +24,7 @@ public class TrayectosEntity {
     private LocalDate fechaTrayecto;
 
     @NotNull
-    private LocalDate horaTrayecto;
+    private LocalTime horaTrayecto;
 
     @NotNull
     private Double valorTrayecto;
@@ -64,11 +65,11 @@ public class TrayectosEntity {
         this.fechaTrayecto = fechaTrayecto;
     }
 
-    public LocalDate getHoraTrayecto() {
+    public LocalTime getHoraTrayecto() {
         return horaTrayecto;
     }
 
-    public void setHoraTrayecto(LocalDate horaTrayecto) {
+    public void setHoraTrayecto(LocalTime horaTrayecto) {
         this.horaTrayecto = horaTrayecto;
     }
 
