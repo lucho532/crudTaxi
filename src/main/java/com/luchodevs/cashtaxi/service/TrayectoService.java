@@ -19,4 +19,6 @@ public interface TrayectoService {
     TrayectoDto actualizarTrayecto(Long id, TrayectoDto trayectoDto);
 
     void eliminarTrayecto(Long id);
+
+
 }

@@ -1,6 +1,7 @@
 package com.luchodevs.cashtaxi.dto;
 
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -10,9 +11,9 @@ public class TrayectoDto{
     public LocalDate fechaDia;
     public LocalDate fechaTrayecto;
     public LocalTime horaTrayecto;
-    public Double valorTrayecto;
-    public Double valorCobrado;
-    public Double valorNeto;
+    public BigDecimal valorTrayecto;
+    public BigDecimal valorCobrado;
+    public BigDecimal valorNeto;
     public String plataforma;
     public String metodoPago;
 
@@ -48,27 +49,27 @@ public class TrayectoDto{
         this.horaTrayecto = horaTrayecto;
     }
 
-    public Double getValorTrayecto() {
+    public BigDecimal getValorTrayecto() {
         return valorTrayecto;
     }
 
-    public void setValorTrayecto(Double valorTrayecto) {
+    public void setValorTrayecto(BigDecimal valorTrayecto) {
         this.valorTrayecto = valorTrayecto;
     }
 
-    public Double getValorCobrado() {
+    public BigDecimal getValorCobrado() {
         return valorCobrado;
     }
 
-    public void setValorCobrado(Double valorCobrado) {
+    public void setValorCobrado(BigDecimal valorCobrado) {
         this.valorCobrado = valorCobrado;
     }
 
-    public Double getValorNeto() {
+    public BigDecimal getValorNeto() {
         return valorNeto;
     }
 
-    public void setValorNeto(Double valorNeto) {
+    public void setValorNeto(BigDecimal valorNeto) {
         this.valorNeto = valorNeto;
     }
 

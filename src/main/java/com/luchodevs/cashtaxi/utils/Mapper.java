@@ -4,6 +4,7 @@ import com.luchodevs.cashtaxi.dto.TrayectoDto;
 import com.luchodevs.cashtaxi.entity.TrayectosEntity;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 @Component
@@ -56,14 +57,4 @@ public class Mapper {
         return dto;
     }
 
-    public Double format(String num) {
-
-        if (num == null || num.isBlank()) {
-            return 0.0;
-        }
-
-        num = num.replace(",", ".");
-
-        return Double.parseDouble(num);
-    }
 }

@@ -4,6 +4,7 @@ package com.luchodevs.cashtaxi.entity;
 import jakarta.persistence.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -27,13 +28,13 @@ public class TrayectosEntity {
     private LocalTime horaTrayecto;
 
     @NotNull
-    private Double valorTrayecto;
+    private BigDecimal valorTrayecto;
 
     @NotNull
-    private Double valorCobrado;
+    private BigDecimal valorCobrado;
 
     @NotNull
-    private Double valorNeto;
+    private BigDecimal valorNeto;
 
     @NotNull
     private String plataforma;
@@ -73,27 +74,27 @@ public class TrayectosEntity {
         this.horaTrayecto = horaTrayecto;
     }
 
-    public Double getValorTrayecto() {
+    public BigDecimal getValorTrayecto() {
         return valorTrayecto;
     }
 
-    public void setValorTrayecto(Double valorTrayecto) {
+    public void setValorTrayecto(BigDecimal valorTrayecto) {
         this.valorTrayecto = valorTrayecto;
     }
 
-    public Double getValorCobrado() {
+    public BigDecimal getValorCobrado() {
         return valorCobrado;
     }
 
-    public void setValorCobrado(Double valorCobrado) {
+    public void setValorCobrado(BigDecimal valorCobrado) {
         this.valorCobrado = valorCobrado;
     }
 
-    public Double getValorNeto() {
+    public BigDecimal getValorNeto() {
         return valorNeto;
     }
 
-    public void setValorNeto(Double valorNeto) {
+    public void setValorNeto(BigDecimal valorNeto) {
         this.valorNeto = valorNeto;
     }
 
