@@ -24,4 +24,26 @@ public interface TrayectosRepository extends JpaRepository <TrayectosEntity,Long
             @Param("inicio") LocalDate inicio,
             @Param("fin") LocalDate fin
     );
+
+    @Query("""
+    SELECT plataforma, valorTrayecto, valorCobrado, COALESCE(SUM(t.valorCobrado), 0)
+    FROM TrayectosEntity t
+    WHERE t.fechaDia BETWEEN :inicio AND :fin
+""")
+    BigDecimal obtenerTotalEntreFechas(
+            @Param("inicio") LocalDate inicio,
+            @Param("fin") LocalDate fin
+    );
+
+    @Query("""
+    SELECT COALESCE(SUM(t.valorCobrado), 0)
+    FROM TrayectosEntity t
+    WHERE t.fechaDia BETWEEN :inicio AND :fin
+      AND UPPER(t.plataforma) = UPPER(:plataforma)
+""")
+    BigDecimal obtenerTotalPorApp(
+            @Param("plataforma") String plataforma,
+            @Param("inicio") LocalDate inicio,
+            @Param("fin") LocalDate fin
+    );
 }

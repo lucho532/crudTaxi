@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class TrayectoDto{
+public class TrayectoDtoResponse {
 
     public Long id;
     public LocalDate fechaDia;

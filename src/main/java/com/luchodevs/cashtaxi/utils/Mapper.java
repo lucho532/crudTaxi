@@ -1,6 +1,7 @@
 package com.luchodevs.cashtaxi.utils;
 
-import com.luchodevs.cashtaxi.dto.TrayectoDto;
+import com.luchodevs.cashtaxi.dto.TrayectoDtoRequest;
+import com.luchodevs.cashtaxi.dto.TrayectoDtoResponse;
 import com.luchodevs.cashtaxi.entity.TrayectosEntity;
 import org.springframework.stereotype.Component;
 
@@ -15,34 +16,44 @@ public class Mapper {
 
 
 
-    public TrayectosEntity trayectosEntityMapper(TrayectoDto trayectoDto) {
+    public TrayectosEntity trayectosEntityMapper(TrayectoDtoRequest trayectoDtoRequest) {
 
         TrayectosEntity trayectoEntity = new TrayectosEntity();
 
         trayectoEntity.setHoraTrayecto(localTime);
-        trayectoEntity.setValorTrayecto(trayectoDto.getValorTrayecto());
+        trayectoEntity.setValorTrayecto(trayectoDtoRequest.getValorTrayecto());
         trayectoEntity.setFechaTrayecto(localDate);
-        trayectoEntity.setPlataforma(trayectoDto.getPlataforma());
+        trayectoEntity.setPlataforma(trayectoDtoRequest.getPlataforma());
         trayectoEntity.setFechaDia(localDate);
-        trayectoEntity.setMetodoPago(trayectoDto.getMetodoPago());
-        trayectoEntity.setValorCobrado(trayectoDto.getValorCobrado());
-        trayectoEntity.setValorNeto(trayectoDto.getValorNeto());
+        trayectoEntity.setMetodoPago(trayectoDtoRequest.getMetodoPago());
+        trayectoEntity.setValorCobrado(trayectoDtoRequest.getValorCobrado());
+        if (trayectoDtoRequest.getValorNeto() == null
+                || trayectoDtoRequest.getValorNeto().compareTo(BigDecimal.ZERO) == 0) {
+
+            trayectoEntity.setValorNeto(trayectoDtoRequest.getValorTrayecto());
+
+        }else{
+            trayectoEntity.setValorNeto(trayectoDtoRequest.getValorNeto());
+        }
+
+
+
 
         return trayectoEntity;
     }
 
-    public TrayectosEntity trayectosUpdateMapper(TrayectoDto trayectoDto, TrayectosEntity entity) {
-        entity.setValorTrayecto(trayectoDto.getValorTrayecto());
-        entity.setPlataforma(trayectoDto.getPlataforma());
-        entity.setMetodoPago(trayectoDto.getMetodoPago());
-        entity.setValorCobrado(trayectoDto.getValorCobrado());
-        entity.setValorNeto(trayectoDto.getValorNeto());
+    public TrayectosEntity trayectosUpdateMapper(TrayectoDtoRequest trayectoDtoRequest, TrayectosEntity entity) {
+        entity.setValorTrayecto(trayectoDtoRequest.getValorTrayecto());
+        entity.setPlataforma(trayectoDtoRequest.getPlataforma());
+        entity.setMetodoPago(trayectoDtoRequest.getMetodoPago());
+        entity.setValorCobrado(trayectoDtoRequest.getValorCobrado());
+        entity.setValorNeto(trayectoDtoRequest.getValorNeto());
         return entity;
     }
 
-    public TrayectoDto trayectoDtoMapper(TrayectosEntity trayectosEntity) {
+    public TrayectoDtoResponse trayectoDtoMapper(TrayectosEntity trayectosEntity) {
 
-        TrayectoDto dto = new TrayectoDto();
+        TrayectoDtoResponse dto = new TrayectoDtoResponse();
 
         dto.setId(trayectosEntity.getId());
         dto.setHoraTrayecto(trayectosEntity.getHoraTrayecto());
