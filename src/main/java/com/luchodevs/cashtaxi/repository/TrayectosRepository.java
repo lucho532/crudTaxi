@@ -26,7 +26,7 @@ public interface TrayectosRepository extends JpaRepository <TrayectosEntity,Long
     );
 
     @Query("""
-    SELECT plataforma, valorTrayecto, valorCobrado, COALESCE(SUM(t.valorCobrado), 0)
+    SELECT COALESCE(SUM(t.valorCobrado), 0)
     FROM TrayectosEntity t
     WHERE t.fechaDia BETWEEN :inicio AND :fin
 """)
